@@ -1,0 +1,44 @@
+/* 공통 */
+body {
+    background-color: #18191a;
+    color: #fff;
+}
+a {
+    text-decoration: none;
+    color: #fff;
+}
+a:hover {
+    color: #d3d3d3;
+}
+
+/* board.html */
+.category {
+    border-radius: 10px;
+    padding: 5px;
+    background-color: #3a3c3f;
+}
+.postTitle {
+    padding: 6px;
+}
+.postEtc {
+    display: inline-block;
+    font-size: 10px;
+    color: rgba(255, 217, 0, 0.575);
+}
+
+/* detail.html */
+.reviewPost {
+    resize: none;
+    border-radius: 15px;
+}
+
+/* like.html */
+.like_box {
+    width: 200px;
+    height: 300px;
+    border: 1px solid gold;
+    border-radius: 10px;
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+}

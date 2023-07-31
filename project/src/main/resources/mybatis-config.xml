@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL" />
+		<setting name="mapUnderscoreToCamelCase" value="true" />
+	</settings>
+	
+	<typeAliases>
+		<typeAlias type="kr.co.greenart.movie.model.dto.Movie" alias="movie"/>
+		<typeAlias type="kr.co.greenart.filmo.model.dto.Filmo" alias="filmo"/>
+		<typeAlias type="kr.co.greenart.staff.model.dto.Staff" alias="staff"/>
+		
+	</typeAliases>
+	
+	<mappers>
+		<mapper resource="/mappers/movie/movie-mapper.xml"/>
+		<mapper resource="/mappers/filmo/filmo-mapper.xml"/>
+		<mapper resource="/mappers/staff/staff-mapper.xml"/>
+	</mappers>
+	
+</configuration>

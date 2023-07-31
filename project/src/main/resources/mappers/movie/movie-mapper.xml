@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="movieMapper">
+   
+   <!-- DTO랑 같음, 근데 얘는 db컬럼이랑 dto맞춰주는거 -->
+   <resultMap type="Movie" id="movieResultSet">
+   	 <result column="MOVIE_INDEX" property="movie_index"></result>
+   	 <result column="MOVIE_TITLE" property="movie_title"></result>
+   	 <result column="MOVIE_DIRECTOR" property="movie_director"></result>
+   	 <result column="MOVIE_SUMMARY" property="movie_summary"></result>
+   	 <result column="MOVIE_POSTER" property="movie_poster"></result>
+   	 <result column="MOVIE_OPEN_DATE" property="movie_open_date"></result>
+   </resultMap>
+   
+   <insert id="insertMovie" parameterType="Movie">
+   		INSERT INTO MOVIE (
+   			MOVIE_INDEX,
+   			MOVIE_TITLE,
+   			MOVIE_DIRECTOR,
+   			MOVIE_SUMMARY,
+   			MOVIE_POSTER,
+   			MOVIE_OPEN_DATE
+   		) VALUES(
+   			movie_seq.nextval,
+   			#{movie_title},
+   			#{movie_director},
+   			#{movie_summary},
+   			#{movie_poster},
+   			#{movie_open_date}
+   		)
+   </insert>
+   
+   <select id="selectMovieId" resultType="_int">
+   		SELECT MOVIE_INDEX FROM MOVIE
+   		WHERE movie_title = #{movie_title} AND movie_director = #{movie_director}
+   </select>
+   
+</mapper>
