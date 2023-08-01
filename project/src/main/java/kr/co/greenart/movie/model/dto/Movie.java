@@ -6,11 +6,13 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class Movie {
 	int  movie_index;
 	String movie_title;
@@ -18,12 +20,9 @@ public class Movie {
 	String movie_summary;
 	String movie_poster;
 	String movie_open_date;
-	@Override
-	public String toString() {
-		return "Movie [movie_index=" + movie_index + ", movie_title=" + movie_title + ", movie_director="
-				+ movie_director + ", movie_summary=" + movie_summary + ", movie_poster=" + movie_poster
-				+ ", movie_open_date=" + movie_open_date + "]";
-	}
 	
+	String uploadPath;
+	String originalName;
+	String fileName;
 	
 }

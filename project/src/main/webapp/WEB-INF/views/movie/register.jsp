@@ -94,7 +94,7 @@
 					<div class="card-body bg-light">
 
 						<div class="container">
-							<form id="contact-form" action="/movie/add.do" method="post" role="form">
+							<form id="contact-form" action="/movie/add.do" method="post" role="form" enctype="multipart/form-data">
 								<div class="controls">
 
 									<div class="row">
@@ -208,8 +208,9 @@
 											<div class="form-group">
 												<label for="formFileDisabled" class="form-label">영화
 													포스터</label> <input class="form-control" type="file"
-													id="formFileDisabled" name="movie_poster" />
+													id="formFileDisabled" name="upload" onChange="readURL(this);"/>
 											</div>
+											<img id="preview" class="poster_preview"/>
 										</div>
 										<div class="col-md-12">
 											<input type="date" name="movie_open_date" />
@@ -288,6 +289,6 @@
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src=".././resources/js/autoTemplate.js"></script>
 	<script src=".././resources/js/genre.js"></script>
+	<script src=".././resources/js/poster.js"></script>
 </body>
-
 </html>

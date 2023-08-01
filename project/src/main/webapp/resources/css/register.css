@@ -42,3 +42,8 @@ label {
 .staff_list li {
     padding: 5px;
 }
+.poster_preview{
+	width: 160px;
+	height: 200px;
+	display:none;
+}
