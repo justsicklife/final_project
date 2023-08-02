@@ -15,5 +15,4 @@ public class MovieDao {
 	public int selectMovieId(SqlSessionTemplate sqlSession, Movie m) {
 		return sqlSession.selectOne("movieMapper.selectMovieId",m);
 	}
-	
 }

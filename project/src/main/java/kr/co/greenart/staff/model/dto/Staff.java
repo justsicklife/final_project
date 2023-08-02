@@ -17,5 +17,7 @@ public class Staff {
 	String staff_sex;
 	int staff_age;
 	String staff_role;
-	String staff_profile;
+	String staff_upload_path;
+	String staff_upload_name;
+	String staff_upload_origin_name;
 }

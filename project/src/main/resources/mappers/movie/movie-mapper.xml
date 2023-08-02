@@ -11,6 +11,10 @@
    	 <result column="MOVIE_SUMMARY" property="movie_summary"></result>
    	 <result column="MOVIE_POSTER" property="movie_poster"></result>
    	 <result column="MOVIE_OPEN_DATE" property="movie_open_date"></result>
+   	 <result column="MOVIE_UPLOAD_PATH" property="movie_upload_path"></result>
+   	 <result column="MOVIE_UPLOAD_NAME" property="movie_upload_name"></result>
+   	 <result column="MOVIE_UPLOAD_ORIGIN_NAME" property="movie_upload_origin_name"></result>
+   
    </resultMap>
    
    <insert id="insertMovie" parameterType="Movie">
@@ -20,14 +24,20 @@
    			MOVIE_DIRECTOR,
    			MOVIE_SUMMARY,
    			MOVIE_POSTER,
-   			MOVIE_OPEN_DATE
+   			MOVIE_OPEN_DATE,
+   			MOVIE_UPLOAD_PATH,
+   			MOVIE_UPLOAD_NAME,
+   			MOVIE_UPLOAD_ORIGIN_NAME
    		) VALUES(
    			movie_seq.nextval,
    			#{movie_title},
    			#{movie_director},
    			#{movie_summary},
    			#{movie_poster},
-   			#{movie_open_date}
+   			#{movie_open_date},
+   			#{movie_upload_path},
+   			#{movie_upload_name},
+   			#{movie_upload_origin_name}
    		)
    </insert>
    

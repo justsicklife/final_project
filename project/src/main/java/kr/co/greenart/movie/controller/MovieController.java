@@ -25,7 +25,7 @@ import kr.co.greenart.movie.model.service.MovieServiceImpl;
 @RequestMapping("/movie")
 public class MovieController {
 
-	public static final String UPLOAD_PATH = "C:\\Users\\GR803\\Documents\\workspace-sts-3.9.18.RELEASE\\final_project-main\\project\\src\\main\\webapp\\resources\\uploads\\";
+	public static final String UPLOAD_PATH = "C:\\Users\\user\\git\\final_project\\project\\src\\main\\webapp\\resources\\uploads\\";
 	
 	@Autowired
 	MovieServiceImpl movieService;
@@ -68,10 +68,12 @@ public class MovieController {
 			String filePathName = UPLOAD_PATH + fileName;
 			
 			Path filePath = Paths.get(filePathName);
-
-			m.setUploadPath(UPLOAD_PATH);
-			m.setOriginalName(originalName);
-			m.setFileName(fileName);
+			
+			m.setMovie_upload_path(UPLOAD_PATH);
+			m.setMovie_upload_name(originalName);
+			m.setMovie_upload_origin_name(fileName);
+			
+			System.out.println(m);
 			
 			try {
 				upload.transferTo(filePath);
@@ -82,7 +84,6 @@ public class MovieController {
 			}
 		}
 		
-		System.out.println(m);
 		
 		int result = movieService.insertMovie(m);
 		

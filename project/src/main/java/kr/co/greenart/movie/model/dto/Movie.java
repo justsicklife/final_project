@@ -21,8 +21,8 @@ public class Movie {
 	String movie_poster;
 	String movie_open_date;
 	
-	String uploadPath;
-	String originalName;
-	String fileName;
+	String movie_upload_path;
+	String movie_upload_name;
+	String movie_upload_origin_name;
 	
 }

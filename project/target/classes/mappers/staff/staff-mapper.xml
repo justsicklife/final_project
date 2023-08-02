@@ -10,8 +10,9 @@
    	 <result column="STAFF_SEX" property="staff_sex"></result>
     <result column="STAFF_AGE" property="staff_age"></result>
    	<result column="STAFF_ROLE" property="staff_role"></result>
- 	<result column="STAFF_PROFILE" property="staff_profile"></result>
- 	
+ 	<result column="STAFF_UPLOAD_PATH" property="staff_upload_path"></result>
+ 	<result column="STAFF_UPLOAD_NAME" property="staff_upload_name"></result> 	
+ 	<result column="STAFF_UPLOAD_ORIGIN_NAME" property="staff_upload_origin_name"></result>
    </resultMap>
    
    <insert id="insertStaff" parameterType="staff">
@@ -21,14 +22,18 @@
    			STAFF_SEX,
    			STAFF_AGE,
    			STAFF_ROLE,
-   			STAFF_PROFILE
+   			STAFF_UPLOAD_PATH,
+   			STAFF_UPLOAD_NAME,
+   			STAFF_UPLOAD_ORIGIN_NAME
    		) VALUES(
    			staff_seq.nextval,
 			#{staff_name},
 			#{staff_sex},
 			#{staff_age},
 			#{staff_role},
-			#{staff_profile}
+			#{staff_upload_path},
+			#{staff_upload_name},
+			#{staff_upload_origin_name}
    		)
    </insert>
    
