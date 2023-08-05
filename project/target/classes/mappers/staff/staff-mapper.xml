@@ -37,8 +37,9 @@
    		)
    </insert>
    
-   <select id="selectStaff" resultMap="staffResultSet">
+   <select id="selectStaffAll" resultMap="staffResultSet">
    		SELECT * FROM STAFF
    </select>
+   
    
 </mapper>

@@ -29,7 +29,7 @@ import kr.co.greenart.staff.model.service.StaffServiceImpl;
 @RequestMapping("/staff")
 public class StaffController {
 
-	public static final String UPLOAD_PATH = "C:\\Users\\user\\git\\final_project\\project\\src\\main\\webapp\\resources\\uploads\\";
+	public static final String UPLOAD_PATH = "C:\\Users\\GR803\\Documents\\workspace-sts-3.9.18.RELEASE\\final\\src\\main\\webapp\\resources\\uploads\\";
 	
 	@Autowired
 	StaffServiceImpl staffService;

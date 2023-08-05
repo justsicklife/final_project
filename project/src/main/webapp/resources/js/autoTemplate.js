@@ -3,45 +3,56 @@ function autocomplete(inp, arr) {
 
     inp.addEventListener("input", function (e) {
 
-        var a, b, i, val = this.value;
+        let val = this.value;
 
         closeAllLists();
         // val 이 false 라면 리턴
         if (!val) { return false; }
 
 
-        a = document.createElement("DIV");
+        let a = document.createElement("DIV");
         a.setAttribute("id", this.id + "autocomplete-list");
         a.setAttribute("class", "autocomplete-items");
         this.parentNode.appendChild(a);
 
 		staff_list = arr.list
 
-        for (i = 0; i < staff_list.length; i++) {
+        for (let i = 0; i < staff_list.length; i++) {
             if (staff_list[i].staff_name.substr(0, val.length).toUpperCase() == val.toUpperCase()) {
 
-                b = document.createElement("DIV");
+                let b = document.createElement("DIV");
                 b.innerHTML = "<strong>" + staff_list[i].staff_name.substr(0, val.length) + "</  >";
                 b.innerHTML += staff_list[i].staff_name.substr(val.length);
 
-                b.innerHTML += `<input type='hidden' data-index='${staff_list[i].staff_index}' value='${staff_list[i].staff_name}'>`
+                b.innerHTML += `<input type='hidden' data-index='${staff_list[i].staff_index}' id='${staff_list[i].staff_index}' value='${staff_list[i].staff_name}'>`
 
                 b.addEventListener("click", function (e) {
+                    // result = 
                     const result = document.createElement("div");
+					const img = document.createElement("img");
+                    const input = document.getElementById(staff_list[i].staff_index);
+                    const hiddenInput = document.createElement("input")
 
-                    const input = e.target.querySelector("input");
+                    console.log(e)
+                    console.log(e.target);
+                    console.log(input)
+                    
                     const value = input.value;
                     const id = parseInt(input.dataset.index);
 
-                    console.log(id)
+                    // result.classList.add("staff_profile");
+					
+					img.src = `/resources/uploads/${staff_list[i].staff_upload_origin_name}`;
+					img.classList.add("staff_img")
+						
 
-                    var hiddenInput = document.createElement("input")
+                    // hidden input 생성 하는거
                     hiddenInput.classList.add(`staff_${id}`)
                     hiddenInput.setAttribute("value", id);
                     hiddenInput.setAttribute("name", "id");
                     hiddenInput.hidden = true;
-                    console.dir(hiddenInput);
 
+                    // 
                     result.classList.add("staff");
                     result.classList.add(`staff_${id}`)
                     result.innerText = value;
@@ -55,7 +66,8 @@ function autocomplete(inp, arr) {
 
                     document.getElementById("result").appendChild(result);
                     document.getElementById("input_result").appendChild(hiddenInput)
-
+					document.querySelector(`.staff_${id}`).appendChild(img);
+					
                     inp.value = "";
 
                     closeAllLists();
@@ -90,7 +102,7 @@ function getStaff() {
         success: function (res) {
             countries = res;
             autocomplete(document.getElementById("myInput"), countries);
-            console.log(countries)
+            console.log(countries);
         },
         error: function () {
             alert("실패");
