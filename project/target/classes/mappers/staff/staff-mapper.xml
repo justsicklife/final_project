@@ -41,5 +41,8 @@
    		SELECT * FROM STAFF
    </select>
    
+   <select id="selectStaffById" resultMap="staffResultSet">
+   		SELECT * FROM STAFF WHERE STAFF_INDEX = #{staff_index}
+   </select>
    
 </mapper>

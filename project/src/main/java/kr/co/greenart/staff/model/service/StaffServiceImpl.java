@@ -27,4 +27,9 @@ public class StaffServiceImpl implements StaffService{
 	public List<Staff> selectStaffAll() {
 		return staffDao.staffSelectAll(sqlSession);
 	}
+
+	@Override
+	public Staff selectStaffById(int staff_index) {
+		return staffDao.staffSelectById(sqlSession,staff_index);
+	}
 }

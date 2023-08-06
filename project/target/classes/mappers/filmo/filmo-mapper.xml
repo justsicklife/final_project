@@ -22,4 +22,8 @@
    		)
    </insert>
    
+   <select id="selectFilmoByStaffId" resultMap="filmoResultSet">
+   	SELECT * FROM FILMO WHERE STAFF_INDEX = #{staff_index}
+   </select>
+   
 </mapper>

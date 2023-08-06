@@ -17,4 +17,9 @@ public class StaffDao {
 	public List<Staff> staffSelectAll(SqlSessionTemplate sqlSession) {
 		return sqlSession.selectList("staffMapper.selectStaffAll");
 	}
+
+	public Staff staffSelectById(SqlSessionTemplate sqlSession, int staff_index) {
+		return sqlSession.selectOne("staffMapper.selectStaffById",staff_index);
+	}
+
 }

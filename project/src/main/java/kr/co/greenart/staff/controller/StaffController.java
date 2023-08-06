@@ -5,6 +5,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -22,6 +23,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import kr.co.greenart.filmo.model.dto.Filmo;
+import kr.co.greenart.filmo.model.service.FilmoServiceImpl;
+import kr.co.greenart.movie.model.dto.Movie;
+import kr.co.greenart.movie.model.service.MovieServiceImpl;
 import kr.co.greenart.staff.model.dto.Staff;
 import kr.co.greenart.staff.model.service.StaffServiceImpl;
 
@@ -33,6 +38,12 @@ public class StaffController {
 	
 	@Autowired
 	StaffServiceImpl staffService;
+	
+	@Autowired
+	FilmoServiceImpl filmoService;
+	
+	@Autowired
+	MovieServiceImpl movieService;
 	
 	@GetMapping("/test.do")
 	public String testStaff() {
@@ -116,7 +127,21 @@ public class StaffController {
 	}
 	
 	@GetMapping("/detail")
-	public String staffDetail(@RequestParam(value="id") int id) {
-		return "";
+	public String staffDetail(@RequestParam(value="id") int staff_index,Model model) {
+		Staff staff =staffService.selectStaffById(staff_index);
+
+		List<Filmo> filmoList = filmoService.selectFilmoByStaffId(staff.getStaff_index());
+		
+		System.out.println(filmoList);
+		
+		List<Movie> movieList = new ArrayList<Movie>();
+		
+		for(int i = 0 ; i < filmoList.size() ; i++) {
+			
+		}
+		
+		model.addAttribute(staff);
+		
+		return "staff/staff_detail";
 	}
 }

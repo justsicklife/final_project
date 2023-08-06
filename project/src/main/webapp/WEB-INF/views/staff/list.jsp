@@ -19,7 +19,7 @@
 
 	<div class="staff_profile_list">
 		<c:forEach var="item" items="${staffList }">
-			<div  onclick="location.href='/staff/detail/${item.staff_index}'" id="staff_profile_link" class="staff_profile_box">
+			<div  onclick="location.href='/staff/detail/?id=${item.staff_index}'" id="staff_profile_link" class="staff_profile_box">
 				<div>
 					<img class="staff_profile" src="/resources/uploads/${item.staff_upload_origin_name}"/>
 				</div>

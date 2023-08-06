@@ -1,5 +1,7 @@
 package kr.co.greenart.filmo.model.service;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,5 +23,11 @@ public class FilmoServiceImpl implements FilmoService{
 		return filmoDao.insertFilmo(sqlSession,f);
 	}
 	
+	@Override
+	public List<Filmo> selectFilmoByStaffId(int staff_index) {
+		return filmoDao.selectFilmoByStaffId(sqlSession,staff_index);
+	}
+
+
 }
 
