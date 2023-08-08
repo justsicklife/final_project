@@ -137,10 +137,12 @@ public class StaffController {
 		List<Movie> movieList = new ArrayList<Movie>();
 		
 		for(int i = 0 ; i < filmoList.size() ; i++) {
-			
+			movieList.add(movieService.selectMovieById(filmoList.get(i).getMovie_index()));
 		}
 		
-		model.addAttribute(staff);
+		model.addAttribute("movieList",movieList);
+		
+		model.addAttribute("staff",staff);
 		
 		return "staff/staff_detail";
 	}

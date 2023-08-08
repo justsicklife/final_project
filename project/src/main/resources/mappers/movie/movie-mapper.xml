@@ -45,5 +45,12 @@
    		SELECT MOVIE_INDEX FROM MOVIE
    		WHERE movie_title = #{movie_title} AND movie_director = #{movie_director}
    </select>
-   
+
+	<select id="selectMovieById" resultMap="movieResultSet">
+		SELECT * FROM MOVIE WHERE MOVIE_INDEX = #{movie_index}
+	</select>   
+	
+	<select id="selectMovieByName" resultMap="movieResultSet">
+		SELECT * FROM MOVIE WHERE MOVIE_TITLE LIKE '%'||#{movie_title}||'%'
+	</select>
 </mapper>

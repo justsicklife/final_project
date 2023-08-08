@@ -17,6 +17,9 @@
 <link rel="stylesheet" type="text/css" href="../resources/css/staff_list.css">
 <body>
 
+		<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
+	
+
 	<div class="staff_profile_list">
 		<c:forEach var="item" items="${staffList }">
 			<div  onclick="location.href='/staff/detail/?id=${item.staff_index}'" id="staff_profile_link" class="staff_profile_box">
@@ -34,6 +37,9 @@
 			</div>
 		</c:forEach>	
 	</div>
+	
+		<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
+	
 
 </body>
 </html>

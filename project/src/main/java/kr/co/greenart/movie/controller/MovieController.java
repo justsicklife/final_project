@@ -5,11 +5,13 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -97,5 +99,16 @@ public class MovieController {
 		}
 		
 		return "redirect:/movie/test.do";
+	}
+	
+	@GetMapping("/search.do")
+	public String movieSearch(Model model,@RequestParam(value="search") String search) {
+		List<Movie> movieList = movieService.selectMovieByName(search);
+		
+		System.out.println(search);
+
+		model.addAttribute("movieList",movieList);
+
+		return "common/search";
 	}
 }
